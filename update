@@ -4,4 +4,4 @@ set -e
 
 touch hosts
 
-docker run --platform linux/amd64 --pull always --rm -it -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist ghcr.io/stevenblack/hosts:latest updateHostsFile.py --auto --replace --extensions fakenews social
+docker run --platform linux/amd64 --pull always --rm -it -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist ghcr.io/stevenblack/hosts:latest updateHostsFile.py --auto --replace --extensions fakenews social gambling
