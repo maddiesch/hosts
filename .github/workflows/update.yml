@@ -1,0 +1,12 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Update Hosts File
+on:
+  workflow_dispatch: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          docker run --pull always --rm -it -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist ghcr.io/stevenblack/hosts:latest updateHostsFile.py --auto --replace --extensions fakenews social gambling
