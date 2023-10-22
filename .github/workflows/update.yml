@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          cp ./hosts /etc/hosts
-          cp ./allowlist /hosts/whitelist
+          sudo cp ./hosts /etc/hosts
+          sudo cp ./allowlist /hosts/whitelist
           updateHostsFile.py --auto --replace --extensions fakenews social gambling
