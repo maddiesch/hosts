@@ -6,7 +6,7 @@ on:
     branches: ["main"]
   workflow_dispatch: {}
 jobs:
-  build:
+  update-hosts:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +14,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          registry: ghcr.io
-          image: stevenblack/hosts:latest
+          image: ghcr.io/stevenblack/hosts:latest
           options: -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist
           run: updateHostsFile.py --auto --replace --extensions fakenews social gambling
