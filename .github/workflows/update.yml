@@ -27,6 +27,7 @@ jobs:
         id: create-pr
         with:
           add-paths: ./hosts
+          title: Auto-Update Hosts File
           commit-message: Automated Update Hosts File
           branch: actions/update-hosts
           body-path: ./message.txt
