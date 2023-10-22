@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          echo $(pwd)
-          ls -alh .
-          ls -alh /etc
+          cp ./hosts /etc/hosts
+          cp ./allowlist /hosts/whitelist
+          updateHostsFile.py --auto --replace --extensions fakenews social gambling
