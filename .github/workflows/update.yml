@@ -6,6 +6,7 @@ on:
     branches: ["main"]
     paths:
       - allowlist
+      - .github/workflows/update.yml
   workflow_dispatch: {}
   schedule:
     - cron: "0 12 * * 0"
@@ -19,13 +20,13 @@ jobs:
           image: ghcr.io/stevenblack/hosts:latest
           options: -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist
           run: updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
+      - run: |
+          echo "Auto-Update Hosts File" > message.txt
+          date +%s >> message.txt
       - uses: peter-evans/create-pull-request@v5
         id: create-pr
         with:
           add-paths: ./hosts
+          commit-message: Automated Update Hosts File
           branch: actions/update-hosts
-      - name: Check outputs
-        if: ${{ steps.create-pr.outputs.pull-request-number }}
-        run: |
-          echo "Pull Request Number - ${{ steps.create-pr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.create-pr.outputs.pull-request-url }}"
+          body-path: ./message.txt
