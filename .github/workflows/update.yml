@@ -14,5 +14,5 @@ jobs:
         with:
           registry: ghcr.io
           image: stevenblack/hosts:latest
-          options: --pull always --rm -it -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist
+          options: -v ./hosts:/etc/hosts -v ./allowlist:/hosts/whitelist
           run: updateHostsFile.py --auto --replace --extensions fakenews social gambling
