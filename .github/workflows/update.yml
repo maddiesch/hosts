@@ -14,4 +14,4 @@ jobs:
         with:
           image: ghcr.io/stevenblack/hosts:latest
           options: -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist
-          run: updateHostsFile.py --auto --replace --extensions fakenews social gambling
+          run: updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
