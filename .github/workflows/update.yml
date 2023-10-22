@@ -8,12 +8,10 @@ on:
 jobs:
   update-hosts:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/stevenblack/hosts:latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          rm -f /etc/hosts
-          cp ./hosts /etc/hosts
-          cp ./allowlist /hosts/whitelist
-          updateHostsFile.py --auto --replace --extensions fakenews social gambling
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: ghcr.io/stevenblack/hosts:latest
+          options: -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist
+          run: updateHostsFile.py --auto --replace --extensions fakenews social gambling
