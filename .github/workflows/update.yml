@@ -10,6 +10,9 @@ on:
   workflow_dispatch: {}
   schedule:
     - cron: "0 12 * * 0"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 jobs:
   update-hosts:
     runs-on: ubuntu-latest
@@ -22,7 +25,7 @@ jobs:
           run: updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
       - run: |
           echo "Auto-Update Hosts File" > message.txt
-          date +%s >> message.txt
+          date >> message.txt
       - uses: peter-evans/create-pull-request@v5
         id: create-pr
         with:
