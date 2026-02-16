@@ -17,7 +17,7 @@ jobs:
   update-hosts:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: |
           docker run --rm \
             -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist \
@@ -26,7 +26,7 @@ jobs:
       - run: |
           echo "Auto-Update Hosts File" > message.txt
           date >> message.txt
-      - uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v8
         id: create-pr
         with:
           add-paths: ./hosts
