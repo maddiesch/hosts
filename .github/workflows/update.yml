@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: addnab/docker-run-action@v3
-        with:
-          image: ghcr.io/stevenblack/hosts:latest
-          options: -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist
-          run: updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
+      - run: |
+          docker run --rm \
+            -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist \
+            ghcr.io/stevenblack/hosts:latest \
+            updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
       - run: |
           echo "Auto-Update Hosts File" > message.txt
           date >> message.txt
