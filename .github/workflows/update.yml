@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: |
-          docker run --rm \
+          docker run --pull always --rm \
             -v ${{ github.workspace }}/hosts:/etc/hosts -v ${{ github.workspace }}/allowlist:/hosts/whitelist \
             ghcr.io/stevenblack/hosts:latest \
             updateHostsFile.py --minimise --auto --replace --extensions fakenews social gambling
