@@ -3,9 +3,9 @@
 # This hosts file is a merged collection of hosts from reputable sources,
 # with a dash of crowd sourcing via GitHub
 #
-# Date: 16 February 2026 02:45:32 (UTC)
+# Date: 16 February 2026 02:48:38 (UTC)
 # Extensions added to this file: fakenews, gambling, social
-# Number of unique domains: 95,343
+# Number of unique domains: 95,342
 #
 # Fetch the latest version of this file: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 # Project home page: https://github.com/StevenBlack/hosts
@@ -27,8 +27,8 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 0.0.0.0 0.0.0.0
-127.0.1.1 155e0257c4f1
-127.0.0.53 155e0257c4f1
+127.0.1.1 f24f13d8eaf6
+127.0.0.53 f24f13d8eaf6
 
 
 0.0.0.0 ad-assets.futurecdn.net
@@ -81077,7 +81077,6 @@ ff02::3 ip6-allhosts
 0.0.0.0 dezcom.com
 0.0.0.0 dhnconstrucciones.com.ar
 0.0.0.0 dialkwik.in
-0.0.0.0 digitalcode.sa
 0.0.0.0 direct-gateway-77.vifespoir.coupons
 0.0.0.0 direct-web-client.perk9parcel.coupons
 0.0.0.0 disk.accord1key.cn
